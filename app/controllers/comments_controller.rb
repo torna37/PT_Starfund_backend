@@ -17,7 +17,6 @@ class CommentsController < ApplicationController
       "content": comment_params[:content],
       "post_id": comment_params[:post_id],
       "user_id": user[:id],
-      "likes_counter": comment_params[:likes_counter]
     }
     comment = Comment.new(comment_params2)
     if comment.save
@@ -39,7 +38,6 @@ class CommentsController < ApplicationController
       "content": comment_params[:content],
       "post": comment[:post_id],
       "user_id": comment[:user_id],
-      "likes_counter": post_params[:likes_counter]
     }
     if comment.update(comment_params2)
       render json: { status: 'SUCCESS', message: 'Updated comment', data: comment }, status: :ok
@@ -51,6 +49,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:title, :content, :post_id, :likes_counter)
+    params.permit(:title, :content, :post_id)
   end
 end
