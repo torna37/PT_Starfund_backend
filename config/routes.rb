@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     member do
       patch 'upvote'
       patch 'downvote'
+      get 'comments'
     end
   end
   resources :users

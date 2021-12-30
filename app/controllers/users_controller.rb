@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    render json: { status: 'SUCCESS', message: 'Loaded post', data: user }, status: :ok
+    render json: { status: 'SUCCESS', message: 'Loaded user', data: user }, status: :ok
   end
 
   def create

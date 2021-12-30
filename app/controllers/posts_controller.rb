@@ -66,6 +66,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def comments
+    post = Post.find(params[:id])
+    comments = post.comments.load
+    render json: { status: 'SUCCESS', message: 'Loaded comments of post', data: comments }, status: :ok
+  end
+
   private
 
   def post_params
