@@ -38,13 +38,31 @@ class PostsController < ApplicationController
     post_params2 = {
       "title": post_params[:title],
       "content": post_params[:content],
-      "user_id": post[:user_id],
-      "likes_counter": post_params[:likes_counter]
     }
-    if post.update(post_params)
+    if post.update(post_params2)
       render json: { status: 'SUCCESS', message: 'Updated post', data: post }, status: :ok
     else
       render json: { status: 'ERROR', message: 'Post not updated', data: post.errors }, status: :unprocessable_entity
+    end
+  end
+
+  def upvote
+    post = Post.find(params[:id])
+    likes = post[:likes_counter] + 1
+    if post.update({ "likes_counter": likes })
+      render json: { status: 'SUCCESS', message: 'Upvoted post', data: post }, status: :ok
+    else
+      render json: { status: 'ERROR', message: 'Post not upvoted', data: post.errors }, status: :unprocessable_entity
+    end
+  end
+
+  def downvote
+    post = Post.find(params[:id])
+    likes = post[:likes_counter] - 1
+    if post.update({ "likes_counter": likes })
+      render json: { status: 'SUCCESS', message: 'downvoted post', data: post }, status: :ok
+    else
+      render json: { status: 'ERROR', message: 'Post not downvoted', data: post.errors }, status: :unprocessable_entity
     end
   end
 
