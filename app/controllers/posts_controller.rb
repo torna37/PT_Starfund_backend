@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       "title": post_params[:title],
       "content": post_params[:content],
       "user_id": user[:id],
-      "likes_counter": post_params[:likes_counter]
+      "likes_counter": 0
     }
     post = Post.new(post_params2)
     if post.save
@@ -75,6 +75,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:title, :content, :username, :likes_counter)
+    params.permit(:title, :content, :username)
   end
 end
