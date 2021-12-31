@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     end
   end
 
+  #No se utilizan los metodos destroy y update pero se podrían usar para elminar un post y editar un post
   def destroy
     post = Post.find(params[:id])
     post.destroy
@@ -46,6 +47,7 @@ class PostsController < ApplicationController
     end
   end
 
+  #dado un id de un post aumenta 1 el contador de likes del post correspondiente
   def upvote
     post = Post.find(params[:id])
     likes = post[:likes_counter] + 1
@@ -56,6 +58,8 @@ class PostsController < ApplicationController
     end
   end
 
+
+  #dado un id de un post disminuye 1 el contador de likes del post correspondiente
   def downvote
     post = Post.find(params[:id])
     likes = post[:likes_counter] - 1
@@ -66,6 +70,9 @@ class PostsController < ApplicationController
     end
   end
 
+
+
+  #dado un id de un post devuelve todos los comentarios del post correspondiente
   def comments
     post = Post.find(params[:id])
     comments = post.comments.load

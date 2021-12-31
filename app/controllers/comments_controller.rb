@@ -26,6 +26,8 @@ class CommentsController < ApplicationController
     end
   end
 
+
+  #No se utilizan los metodos destroy y update pero se podrían usar para elminar un comment y editar un comment
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy
