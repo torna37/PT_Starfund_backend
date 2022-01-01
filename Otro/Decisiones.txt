@@ -1,0 +1,20 @@
+Se puede ver en el modelo relacional que hay 3 tablas, User, Post y Comment. Los usuarios pueden tener varios posts y comentarios, y los posts pueden tener varios comentarios.
+
+Dada las funcionalidades pedidas se podrían haber implementado 2 tablas y que el username sea una columna más de Post y Comment. 
+Para facilitar la evolución de la aplicación se decide crear una tabla aparte, de esta manera se podría implementar un sistema de login y agregarle atributos al usuario como mail, foto de perfil, etc. 
+
+Los controladores PostsController y comments_controller implementan los métodos básicos index, show, create, destroy y update, estos últimos dos no fueron utilizados pero servirían para agregar la funcionalidad de eliminar y editar posts/comments.
+Además el controlador PostsController implementa los métodos upvote, downvote y comments, utilizados para aumentar los likes, diminuir los likes y obtener todos los comentarios de un post.
+
+
+Hay algunas cosas que se pueden mejorar. 
+
+Para la comunicación del front con la API se debería haber usado un .env pero como la única variable de entorno era la API endpoint no se hizo para simplificar.
+
+Al actualizar el contador de likes se podría haber hecho desde el front para mostrar al usuario instantaneamente y luego actualizar en la base de datos en lugar de directamente actualizar y consultar.
+
+El archivio database.yml no se subió al repo para no exponer la contraseña de la base de datos pero en lugar de esto se podría haber usado una variable de entorno para la contraseña.
+
+Por la simplicidad de la tarea no se utilizó una store pero para mejorar el flujo de información de la aplicación se podría haber utilizado una como por ejemplo redux.
+
+Por último se puede mejorar bastante la parte visual (aunque la tarea no lo pedía).
