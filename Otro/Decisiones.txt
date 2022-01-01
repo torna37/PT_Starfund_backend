@@ -17,4 +17,6 @@ El archivio database.yml no se subió al repo para no exponer la contraseña de 
 
 Por la simplicidad de la tarea no se utilizó una store pero para mejorar el flujo de información de la aplicación se podría haber utilizado una como por ejemplo redux.
 
+Hay una falta de manejo de errores en el frontend, que en el contexto de una aplicación real es una actividad crítica pero no se hizo por cuestiones de tiempo.
+
 Por último se puede mejorar bastante la parte visual (aunque la tarea no lo pedía).
